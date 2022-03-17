@@ -33,7 +33,7 @@ public class Crud {
 	public ArrayList<Business> getData() {
 		ArrayList<Business> AllBusinesses = new ArrayList<Business>();
 		String business_name;
-		int business_code;
+		String business_code;
 
 		try {
 			Connection connection = getConnection();
@@ -43,7 +43,7 @@ public class Crud {
 
 			while (SQLResultSet.next()) {
 				Business businessObject = new Business();
-				business_code = SQLResultSet.getInt("business_code");
+				business_code = SQLResultSet.getString("business_code");
 				business_name = SQLResultSet.getString("business_name");
 				businessObject.setBusiness_code(business_code);
 				businessObject.setBusiness_name(business_name);
@@ -52,10 +52,7 @@ public class Crud {
 		} catch (SQLException SQLE) {
 			SQLE.printStackTrace();
 		}
-		//print AllBusinesses to console
-		for (Business business : AllBusinesses) {
-			System.out.println(business.getBusiness_code() + " " + business.getBusiness_name());
-		}
+	
 		return AllBusinesses;
 
 	}
