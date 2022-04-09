@@ -6,13 +6,11 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Asim/Documents/HighRadius/JDBC/JARs/mysql-connector-java-8.0.26.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="C:/Users/Asim/Documents/HighRadius/JDBC/JARs/gson-2.6.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Asim/Documents/HighRadius/JDBC/JARs/mysql-connector-java-8.0.26.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Asim/Documents/HighRadius/JDBC/JARs/org.json.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/apache-tomcat-9.0.55">
 		<attributes>
 			<attribute name="owner.project.facets" value="jst.web"/>
