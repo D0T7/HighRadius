@@ -1,0 +1,9 @@
+body {
+  background: transparent
+    radial-gradient(closest-side at 50% 50%, #58687e 0%, #39495e 100%) 0% 0%;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
