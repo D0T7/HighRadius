@@ -1,0 +1,8 @@
+header {
+  display: flex;
+  align-items: right;
+}
+.HRCLogo {
+  margin-right: 7px;
+  align-items: right;
+}
