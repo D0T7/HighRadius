@@ -21,15 +21,12 @@ import com.highradius.pojo.Invoice;
 public class SearchInvoice extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
-		int NO_OF_ROWS_TO_GET = 12;
+		int NO_OF_ROWS_TO_GET = 10;
 		try {
 			Connection con = Connector.getConnection();
 
