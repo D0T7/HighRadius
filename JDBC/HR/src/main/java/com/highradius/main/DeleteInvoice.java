@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 public class DeleteInvoice extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
 			Connection con = Connector.getConnection();
@@ -27,7 +27,6 @@ public class DeleteInvoice extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		doGet(request, response);
 	}
 
 }

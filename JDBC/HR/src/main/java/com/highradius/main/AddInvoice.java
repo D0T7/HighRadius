@@ -18,7 +18,7 @@ public class AddInvoice extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		try {
@@ -45,8 +45,8 @@ public class AddInvoice extends HttpServlet {
 			String custPaymentTerms = request.getParameter("custPaymentTerms");
 			String invoiceIdInURL = request.getParameter("invoiceId");
 			int invoiceId = Integer.parseInt(invoiceIdInURL);
-			String businessName = request.getParameter("businessName");
-			String nameCustomer = request.getParameter("nameCustomer");
+//			String businessName = request.getParameter("businessName");
+//			String nameCustomer = request.getParameter("nameCustomer");
 
 			String query3 = "SELECT COUNT(*) AS businessCount FROM grey_goose.business WHERE business_code = '"
 					+ businessCode + "'";
@@ -56,10 +56,10 @@ public class AddInvoice extends HttpServlet {
 				int businessCodeCount = rs.getInt("businessCount");
 
 				if (businessCodeCount == 0) {
-					String query = "INSERT INTO `grey_goose`.`business`(business_code,business_name) VALUES(?,?)";
+					String query = "INSERT INTO `grey_goose`.`business`(business_code) VALUES(?)";
 					PreparedStatement st = con.prepareStatement(query);
 					st.setString(1, businessCode);
-					st.setString(2, businessName);
+//					st.setString(2, businessName);
 					st.executeUpdate();
 					st.close();
 				}
@@ -76,10 +76,10 @@ public class AddInvoice extends HttpServlet {
 				int customerNumberCount = rs1.getInt("customerCount");
 
 				if (customerNumberCount == 0) {
-					String query1 = "INSERT INTO `grey_goose`.`customer`(cust_number,name_customer) VALUES(?,?)";
+					String query1 = "INSERT INTO `grey_goose`.`customer`(cust_number) VALUES(?)";
 					PreparedStatement st1 = con.prepareStatement(query1);
 					st1.setInt(1, custNumber);
-					st1.setString(2, nameCustomer);
+//					st1.setString(2, nameCustomer);
 					st1.executeUpdate();
 					st1.close();
 				}
@@ -111,7 +111,6 @@ public class AddInvoice extends HttpServlet {
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
-		doGet(request, response);
 	}
 
 }

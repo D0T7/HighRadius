@@ -1,9 +1,21 @@
 body {
   background: transparent
     radial-gradient(closest-side at 50% 50%, #58687e 0%, #39495e 100%) 0% 0%;
+    text-align: center;
+}
+header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-bottom: 3%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+footer{
+  padding-top: 2%;
+  color: white;
+}
+a:link {
+  text-decoration: none;
+}
+.link{
+  color: rgb(21, 136, 208);
 }

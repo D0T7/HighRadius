@@ -1,11 +1,11 @@
-import DataGrid from "./components/DataGrid";
+import MainPage from "./components/MainPage";
 import  Header  from './components/Header';
 
 function App() {
   return (
     <>
     <Header/>
-    <DataGrid />
+    <MainPage />
     </>
   );
 }

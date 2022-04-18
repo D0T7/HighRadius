@@ -15,14 +15,14 @@ public class EditInvoice extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
 			Connection con = Connector.getConnection();
-			String slNoInURL = request.getParameter("sl_no");
+			String slNoInURL = request.getParameter("slNo");
 			int slNo = Integer.parseInt(slNoInURL);
-			String invoiceCurrency = request.getParameter("invoice_currency");
-			String custPaymentTerms = request.getParameter("cust_payment_terms");
+			String invoiceCurrency = request.getParameter("invoiceCurrency");
+			String custPaymentTerms = request.getParameter("custPaymentTerms");
 			String query = "UPDATE `grey_goose`.`winter_internship` SET invoice_currency = ?,cust_payment_terms = ? WHERE sl_no = ?";
 			PreparedStatement st = con.prepareStatement(query);
 			st.setString(1, invoiceCurrency);
@@ -33,7 +33,6 @@ public class EditInvoice extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		doGet(request, response);
 	}
 
 }

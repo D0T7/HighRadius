@@ -18,18 +18,18 @@ import com.highradius.pojo.Invoice;
 public class FetchData extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
-		int NO_OF_ROWS_TO_GET = 10;
+//		int NO_OF_ROWS_TO_GET = 10;
 		try {
 			Connection con = Connector.getConnection();
-			String pageInURL = request.getParameter("page");
-			int page = Integer.parseInt(pageInURL) * NO_OF_ROWS_TO_GET;
+//			String pageInURL = request.getParameter("page");
+//			int page = Integer.parseInt(pageInURL) * NO_OF_ROWS_TO_GET;
 			Statement st = con.createStatement();
-			String query = "SELECT sl_no,business_code,cust_number,clear_date,business_year,doc_id,posting_date,document_create_date,due_in_date,invoice_currency,document_type,posting_id,total_open_amount,baseline_create_date,cust_payment_terms,invoice_id from grey_goose.winter_internship ORDER BY sl_no DESC LIMIT "
-					+ page + "," + NO_OF_ROWS_TO_GET;
+			String query = "SELECT sl_no,business_code,cust_number,clear_date,business_year,doc_id,posting_date,document_create_date,due_in_date,invoice_currency,document_type,posting_id,total_open_amount,baseline_create_date,cust_payment_terms,invoice_id from grey_goose.winter_internship ORDER BY sl_no ";
+//				+ " DESC LIMIT" + page + "," + NO_OF_ROWS_TO_GET;
 			ResultSet rs = st.executeQuery(query);
 			ArrayList<Invoice> data = new ArrayList<>();
 			while (rs.next()) {
@@ -56,8 +56,8 @@ public class FetchData extends HttpServlet {
 			String invoices = gson.toJson(data);
 			try {
 				response.getWriter().write(invoices);
-			} catch (IOException e) {
-				e.printStackTrace();
+			} catch (IOException err) {
+				err.printStackTrace();
 			}
 			rs.close();
 			st.close();
